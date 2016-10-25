@@ -12,7 +12,23 @@ struct node{
     node* link;
     int data;
 };
-
+node * enterathead(node *head)
+{
+node *temp;
+if(head==NULL)
+{
+head=new node;
+cin>>head->data;
+head->link=NULL;
+}
+else{
+temp=new node;
+temp->link=head;
+head=temp;
+cin>>temp->data;
+}
+return head;
+}
 void display(node* temp){
     while(temp!=NULL){
         cout<<temp->data<<" ";
@@ -22,6 +38,14 @@ void display(node* temp){
 
 int main() {
     node *head=NULL;
-    display(head);
+   
+cout<<"1. insertion at begining";
+int a;
+cin>>a;
+if(a==1)
+{
+head=enterathead(head);
+}
+ display(head);
     return 0;
 }
